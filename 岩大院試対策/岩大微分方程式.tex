@@ -1,0 +1,220 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\graphicspath{{ピクチャ/}}
+\usepackage{otf}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\newcommand{\e}{{\rm e}}
+\newcommand{\dash}{^\prime}
+\newcommand{\ddash}{^{\prime\prime}}
+\newcommand{\f}{\frac}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\dis}{\displaystyle}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\begin{document}
+
+\title{\huge 岩大院試　重要事項まとめ}
+\maketitle
+
+\part{微分方程式}
+
+\section{定数係数の非同次二階線形微分方程式の代入法}
+
+非同次方程式の解法の一つに代入法がある。
+
+以下の(\ref{あ})式が定数係数の非同次二階線形微分方程式である($p,q$は定数)。
+
+\begin{equation}
+\label{あ}
+\displaystyle \f{\diff^2y}{\diff x^2}+p\f{\diff y}{\diff x}+qy=r(x)
+\end{equation}
+
+非同次項$r(x)$の形によって代入する関数の形が変わるため以下にまとめる。
+
+\subsection{$\dis r(x)=Ax^n$(Aは定数)の場合}
+
+$\dis Y(x)=a_0x^n+a_1x^{n-1}+・・・+a_{n-1}x+a_n$として(\ref{あ})式に代入して係数$a_j(j=0,1,...,n)$を決める。
+
+\subsection{$\dis r(x)=A\cos x+B\sin x$の場合}
+
+$\dis Y(x)=a\cos x+b\sin x$として(\ref{あ})式に代入して係数$a,b$を決める。
+
+\subsection{$\dis r(x)=A\e^{kx}(ただし同次方程式がk^2+pk+q\neq 0)の場合$}
+
+$\dis Y(x)=a\e^{kx}として係数を求める。$
+
+\subsection{$\dis  r(x)=A\e^{kx}(ただし同次方程式がk^2+pk+q= 0)の場合$}
+
+$\dis Y(x)=ax\e^{kx}として係数を求める。$同次方程式が0ということは$\dis Y(x)=A\e^{kx}$が特殊解に含まれているということなので、$\dis Y(x)にx$を掛ける。
+
+このように代入法で0が出てきてしまったら$x$を掛ければよい。
+
+\newpage
+
+\section{同次二階線形微分方程式}
+
+(\ref{あ})式で$r(x)=0$としたものが、定数係数の同次二階線形微分方程式である。$\dis y=\e^{\lambda x}$として(\ref{1})に代入すると、以下の式(同次方程式)が得られる。
+
+\begin{equation}
+\label{い}
+\displaystyle \lambda^2+p\lambda+q=0 
+\end{equation}
+
+(\ref{い})式をとくと$\lambda_1$と$\lambda_2$が得られる。
+
+\subsection{$\lambda_1 \neq \lambda_2$の場合}
+
+一般解は$\dis y=C_1\e^{\lambda_1x}+C_2\e^{\lambda_2x}$となる。
+
+\subsection{$\lambda_1=\lambda_2=\lambda$の場合}
+
+一般解は$\dis y=(C_1+C_2x)\e^{\lambda x}$となる。
+
+\section{完全微分方程式}
+
+\subsection{全微分}
+
+\begin{equation}
+\label{all}
+\displaystyle \diff u=\f{\diff u}{\diff x}\diff x+\f{\diff u}{\diff y}\diff y
+\end{equation}
+
+が全微分である。ただし、$\dis u=u(x,y)$。
+
+\subsection{完全微分方程式}
+
+\newtcolorbox{mysimplebox}[1]{%
+ colframe=black, colback=white,
+ coltitle=black, colbacktitle=white,
+ boxrule=0.8pt, arc=0mm
+ fonttitle=\sffamily\bfseries,
+ enhanced,
+ attach boxed title to top left={xshift=10mm,yshift=-3mm},
+ boxed title style={frame hidden},
+ title=#1}
+ 
+\begin{mysimplebox}{完全微分方程式であるための必要十分条件}
+
+微分方程式
+
+\begin{equation}
+\label{え}
+\displaystyle \dis P(x,y)\diff x+Q(x,y)\diff y=0
+\end{equation}
+
+が完全微分方程式であるための必要十分条件は、
+
+\begin{equation}
+\label{お}
+\displaystyle \dis \f{\diff P}{\diff y}=\f{\diff Q}{\diff x}
+\end{equation}
+
+である。(\ref{え})式を満たさないときは(\ref{お})式に積分因子$\mu (x,y)$をかけて、(\ref{お})式を満たさせる方法もある。
+
+\end{mysimplebox}
+
+全微分の問題が出た場合は上の性質((\ref{all})式または(\ref{お})式を用いて解く。
+
+\newpage
+
+\begin{mysimplebox}{例題}
+次の微分方程式
+\begin{equation}
+\label{ex1}
+\displaystyle -y\sin x \diff x+\cos x \diff y=0 
+\end{equation}
+
+の一般解を求めよ。(岩手大学 2021年2期)
+\end{mysimplebox}
+
+\paragraph{全微分を用いた解法}
+
+　　
+
+(\ref{ex1})式を全微分を用いて表すと、
+
+\begin{center}
+$\dis \diff(y\cos x)$=0
+\end{center}
+上式の両辺を積分して、
+
+\begin{center}
+$\dis y\cos x=C　(Cは任意定数)$
+\end{center}
+が一般解である。$\square$
+
+\paragraph{完全微分方程式の解法}
+
+　　
+
+(\ref{ex1})式は完全微分方程式である。したがって、求める一般解を$\dis F(x,y)$とすると、完全微分方程式は以下のように表される。
+
+\begin{center}
+$\displaystyle \diff F(x,y)=\diff F(x,y)\diff x+\diff F(x,y)\diff y=0$
+\end{center}
+
+(\ref{ex1})式から
+
+\begin{center}
+$\dis \f{\diff F}{\diff x}=-y\sin x　\f{\diff F}{\diff y}=\cos x$
+\end{center}
+
+となることが分かる。両辺を積分すると、
+
+\begin{center}
+$\dis F(x,y)=y\cos x+C(y)=y\cos x+C(y)$
+\end{center}
+
+となることが分かる($\dis C(x),C(y)はそれぞれxとyの任意関数$)。
+
+しかし、等号が成り立つには、$\dis C(x)=C(y)=C$となる必要があり、求める一般解は、
+
+\begin{center}
+$\dis y\cos x=C　(Cは任意定数)$
+\end{center}
+である。$\square$
+
+\newpage
+
+\section*{あとがき}
+
+岩手大学数物コースの院試に出る科目のまとめを作りました。間違えがあったらすみません。
+
+\begin{thebibliography}{9}
+\item 矢嶋信男著　「常微分方程式」　岩波書店
+
+2019年時点での微分方程式の講義の指定教科書。院試の問題に章末問題からの引用が見受けられる。
+  
+\item 和達三樹著　「物理のための数学」　岩波書店
+
+2020年時点での物理数学演習1の講義の指定教科書。微分方程式の代入法が載っていないが、全微分を用いた解法が載っている。
+
+\item 上野健爾著　「応用数学」　森北出版株式会社
+
+2020年時点での複素解析の講義の指定教科書。上の二冊に比べて新しく、分かりやすい。
+  
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
